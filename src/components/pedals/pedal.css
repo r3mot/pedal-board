@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Roboto:wght@100&display=swap");
+
+.delay-pedal {
+  background: rgb(77, 77, 226);
+}
+
+.delay-pedal .pedal-stomp {
+  border-top: inset 10px rgb(85, 85, 247);
+}
+
+.reverb-pedal {
+  background: green;
+}
+
+.reverb-pedal .pedal-stomp {
+  border-top: inset 10px rgb(15, 170, 15);
+}
+
+.volume-pedal {
+  background: rgb(32, 83, 58);
+}
+
+.volume-pedal .pedal-stomp {
+  border-top: inset 10px rgba(32, 83, 58, 0.411);
+}
+
+.distortion-pedal {
+  background: rgb(226, 131, 22);
+}
+
+.distortion-pedal .pedal-stomp {
+  border-top: inset 10px rgb(226, 131, 22);
+}
+
+.pedal {
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+.pedal-controls-wrapper,
+.pedal-indicator,
+.pedal-stomp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.pedal-indicator {
+  padding-top: 0.2rem;
+  height: 8%;
+}
+
+.pedal-indicator__light {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(97, 7, 7, 0.986);
+}
+
+.pedal-controls {
+  height: 30%;
+  gap: 1rem;
+}
+
+.pedal-control-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+}
+
+.pedal-controls-knob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0rem;
+}
+
+.pedal-stomp {
+  height: 60%;
+  /* background: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pedal-stomp__title {
+  font-family: "Delicious Handrawn", cursive;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pedal-stomp__title h2 {
+  font-size: 2rem;
+  color: rgb(3, 3, 3);
+  margin: 0;
+}
+
+.pedal-stomp__button {
+  width: 90%;
+  height: 100%;
+  background: rgba(31, 31, 31, 0.986);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.animated {
+  box-shadow: inset 0 0 0 2px rgb(143, 142, 142);
+}
+
+.on {
+  background-color: red;
+  box-shadow: 0 0 15px rgb(201, 0, 0);
+}
+
+.hidden-checkbox {
+  display: none;
+}
+
+.control-title {
+  font-family: "Roboto", sans-serif;
+}
