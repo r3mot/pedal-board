@@ -1,7 +1,9 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { IContextProps, IMediaContextProps, MediaSource } from "../types/type";
+import { shortLabel } from "../utility";
 import { MediaInput } from "../types/MediaInput";
 import sample from "../../public/test-track.wav";
+import sample2 from "../../public/test-track-2.wav";
 import { UserMedia } from "tone";
 
 const MediaSourceContext = createContext<IMediaContextProps>({
@@ -19,23 +21,19 @@ export const MediaSourceProvider = ({ children }: IContextProps) => {
   const addMediaSource = (mediaSource: MediaInput) =>
     setMediaSources((prev) => [...prev, mediaSource]);
 
-  const addSample = () => {
-    console.log("adding sample");
-    addMediaSource(new MediaInput(sample, "Electric Guitar Sample"));
-  };
-
   const addMediaSources = () => {
     UserMedia.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
         if (device.kind === "audioinput") {
-          addMediaSource(new MediaInput(device, device.label));
+          addMediaSource(new MediaInput(device, shortLabel(device.label)));
         }
       });
     });
   };
 
   useEffect(() => {
-    addSample();
+    addMediaSource(new MediaInput(sample, "Guitar Sample"));
+    addMediaSource(new MediaInput(sample2, "Guitar Sample - 2"));
   }, []);
 
   useEffect(() => {

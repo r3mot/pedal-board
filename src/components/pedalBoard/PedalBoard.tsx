@@ -4,6 +4,7 @@ import {
   DelayPedal,
   VolumePedal,
   DistortionPedal,
+  TunerPedal,
 } from "../pedals";
 
 export const PedalBoard = () => {
@@ -14,7 +15,7 @@ export const PedalBoard = () => {
         <DelayPedal />
         <DistortionPedal />
         <VolumePedal />
-        {/* <div className='strip'></div> */}
+        <TunerPedal />
       </div>
     </div>
   );

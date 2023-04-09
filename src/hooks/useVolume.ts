@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { usePedalChain } from "./usePedalChain";
-import { Volume } from "tone";
+import { Volume, Destination } from "tone";
 import { Source } from "../types";
 
 export const useVolume = () => {
   const { add, remove } = usePedalChain();
-  const [volumeValue, setVolumeValue] = useState(-10);
+  const [volumeValue, setVolumeValue] = useState(Destination.volume.value);
 
   const ref = useRef<Source<Volume>>();
 
@@ -16,7 +16,7 @@ export const useVolume = () => {
 
   const activate = () => {
     ref.current = new Source({
-      id: 2,
+      id: 0,
       effect: new Volume(-10),
     });
     ref.current.effect.volume.set({ value: volumeValue });
@@ -24,7 +24,7 @@ export const useVolume = () => {
   };
 
   const bypass = () => {
-    // ref.current?.effect.dispose();
+    ref.current?.effect.dispose();
     remove(ref.current);
   };
 

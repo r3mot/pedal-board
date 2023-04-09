@@ -22,7 +22,7 @@ export const useFreeverb = () => {
 
   const activate = () => {
     ref.current = new Source({
-      id: 0,
+      id: 3,
       effect: new Freeverb(),
     });
     ref.current.effect.wet.set({ value: mixAmount });

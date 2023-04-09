@@ -22,10 +22,13 @@ export const useDistorion = () => {
 
   const activate = () => {
     ref.current = new Source({
-      id: 3,
+      id: 1,
       effect: new Distortion(),
     });
-    ref.current.effect.wet.set({ value: mixAmount });
+
+    ref.current.effect.wet.set({
+      value: mixAmount,
+    });
     ref.current.effect.set({ distortion: distAmount });
     add(ref.current);
   };

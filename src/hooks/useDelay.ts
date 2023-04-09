@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { usePedalChain } from "./usePedalChain";
 import { PingPongDelay } from "tone";
 import { Source } from "../types";
@@ -11,6 +11,7 @@ export const useDelay = () => {
   const [delayTime, setDelayTime] = useState(0);
   const [feedback, setFeedbackAmount] = useState(0);
   const [mixAmount, setMixAmount] = useState(0);
+  const [active, setActive] = useState(false);
   const ref = useRef<Source<PingPongDelay>>();
 
   const setDelay = (value: number) => {
@@ -28,9 +29,11 @@ export const useDelay = () => {
     ref.current?.effect.wet.set({ value: value / 100 });
   };
 
+  useEffect(() => {}, [active]);
+
   const activate = () => {
     ref.current = new Source({
-      id: 1,
+      id: 2,
       effect: new PingPongDelay(),
     });
     ref.current.effect.wet.set({ value: mixAmount });
