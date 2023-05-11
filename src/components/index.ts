@@ -3,4 +3,4 @@ export * from "./pedals";
 export * from "./pedalBoard";
 export * from "./header";
 export * from "./dropdown";
-export * from "./intro";
+export * from "./record";
