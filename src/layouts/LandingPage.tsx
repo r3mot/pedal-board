@@ -8,7 +8,7 @@ export const LandingPage = () => {
     <section className='landing-page'>
       <div className='intro__content'>
         <div className='intro-title-container'>
-          <h1 className='intro__title'>Smash the pedal, not your wallet</h1>
+          <h1 className='intro__title'>Smash the pedal, not your gear.</h1>
           <p className='intro__subtitle'>
             Select one of our audio samples, or plug in your instrument and
             play. It's that simple!
