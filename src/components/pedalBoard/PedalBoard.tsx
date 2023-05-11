@@ -4,18 +4,18 @@ import {
   DelayPedal,
   VolumePedal,
   DistortionPedal,
-  TunerPedal,
 } from "../pedals";
+import { Dropdown } from "../dropdown";
 
 export const PedalBoard = () => {
   return (
-    <div className='pedal-board'>
-      <div className='pedal-board-components'>
+    <div className="pedal-board">
+      <Dropdown />
+      <div className="pedal-board-components">
         <ReverbPedal />
         <DelayPedal />
         <DistortionPedal />
         <VolumePedal />
-        <TunerPedal />
       </div>
     </div>
   );

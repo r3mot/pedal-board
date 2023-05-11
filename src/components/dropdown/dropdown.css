@@ -31,7 +31,7 @@ a:hover {
   max-width: 100%;
   text-align: center;
   z-index: 200;
-  padding-right: 4rem;
+  /* padding-right: 4rem; */
 }
 
 /* hide checkbox */

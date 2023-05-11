@@ -38,10 +38,8 @@ export interface IMediaContextProps {
 }
 
 export interface IChainContextProps {
-  pedalChain: Effect<Tone.ToneAudioNode>[];
-  setPedalChain: React.Dispatch<
-    React.SetStateAction<Effect<Tone.ToneAudioNode>[]>
-  >;
+  pedalChain: Tone.ToneAudioNode[];
+  setPedalChain: React.Dispatch<React.SetStateAction<Tone.ToneAudioNode[]>>;
 }
 
 export type AudioNode = Tone.ToneAudioNode;

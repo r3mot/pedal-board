@@ -1,10 +1,11 @@
 import "./App.css";
-import { PedalBoard, Header } from "./components";
+import { PedalBoard, Header, Intro } from "./components";
 
 export const App = () => {
   return (
-    <div className='app'>
+    <div className="app">
       <Header />
+      {/* <Intro /> */}
       <PedalBoard />
     </div>
   );

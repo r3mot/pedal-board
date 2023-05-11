@@ -18,7 +18,7 @@
 
 .volume-pedal {
   background: rgb(32, 83, 58);
-  width: calc(15.625rem / 1.2) !important;
+  /* width: calc(15.625rem / 1.2) !important; */
 }
 
 .volume-pedal .pedal-stomp {
@@ -120,7 +120,13 @@ h3 {
 .pedal-stomp__button {
   width: 90%;
   height: 100%;
-  background: rgba(31, 31, 31, 0.986);
+  /* background: rgba(31, 31, 31, 0.986); */
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    24deg,
+    rgba(31, 31, 31, 0.986) 65%,
+    rgb(27, 26, 27) 100%
+  );
   border: none;
   display: flex;
   align-items: center;
@@ -135,8 +141,8 @@ h3 {
 }
 
 .on {
-  background-color: red;
-  box-shadow: 0 0 15px rgb(201, 0, 0);
+  background-color: rgb(255, 4, 4);
+  box-shadow: inset 0 0 0.5em 0 rgb(255, 4, 4), 0 0 0.5em 0 rgb(255, 4, 4);
 }
 
 .hidden-checkbox {
