@@ -1,12 +1,19 @@
 import { useEffect } from "react";
-import { getDestination, Player, UserMedia, setContext, Context } from "tone";
+import {
+  getDestination,
+  Player,
+  UserMedia,
+  setContext,
+  Context,
+  Recorder,
+} from "tone";
 import { useMediaProvider } from "../context/MediaProvider";
 import { MediaInput } from "../types/MediaInput";
 
 export const useSource = () => {
   const { source, setSource, mediaSources, hasPermission, setHasPermission } =
     useMediaProvider();
-
+  const recorder = new Recorder();
   useEffect(() => {
     setContext(new Context({ latencyHint: "interactive" }));
   }, []);
@@ -25,8 +32,8 @@ export const useSource = () => {
     } else {
       const userMedia = new UserMedia();
       await userMedia.open(input.media.deviceId);
+      userMedia.connect(recorder);
       userMedia.chain(getDestination());
-      // userMedia.volume.value = -10;
       setSource(userMedia);
     }
   };
@@ -50,5 +57,6 @@ export const useSource = () => {
     hasPermission,
     setHasPermission,
     getPermission,
+    recorder,
   };
 };
