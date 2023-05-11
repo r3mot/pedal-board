@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useChainProvider, useMediaProvider } from "../context";
-import { Source } from "../types";
-import { getDestination, Context } from "tone";
+import { getDestination } from "tone";
 import { ToneAudioNode } from "tone";
 
 export const usePedalChain = () => {
