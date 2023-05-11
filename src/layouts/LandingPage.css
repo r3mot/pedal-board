@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300;400&display=swap");
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  position: relative;
+  flex-direction: column;
+}
+
+.intro__content {
+  padding: 0 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 450px;
+}
+
+.intro__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -2.4px;
+}
+
+.intro__subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: rgb(158, 156, 156);
+}
+
+.intro__button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.intro__button:hover {
+  background-color: white;
+  color: black;
+}
+
+.intro__icons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro__icon-text h3 {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgb(158, 156, 156);
+  margin: 0;
+}
+
+.intro__icon-text p {
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: rgb(158, 156, 156);
+  margin: 0;
+}
+
+.stepper-container {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.stepper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.stepper p {
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: rgb(158, 156, 156);
+  margin: 0;
+  text-align: center;
+}
+
+.stepper__circle {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border: 2px solid white;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  margin: 0 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .intro__content {
+    max-width: 600px;
+  }
+  .intro__title {
+    font-size: 4rem;
+  }
+
+  .intro__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .intro__button {
+    font-size: 1.2rem;
+  }
+
+  .stepper__circle {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .landing-page {
+    max-width: 1280px;
+
+    gap: 5rem;
+  }
+  .intro__content {
+    max-width: 800px;
+  }
+  .intro__title {
+    font-size: 5rem;
+  }
+
+  .intro__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .stepper {
+    gap: 1rem;
+  }
+
+  .stepper__circle {
+    width: 2rem;
+    height: 2rem;
+  }
+}
