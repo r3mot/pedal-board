@@ -1,31 +1,35 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePedalChain } from "./usePedalChain";
-import { Volume, Destination } from "tone";
-import { Source } from "../types";
+import { Volume, Destination, Signal } from "tone";
 
 export const useVolume = () => {
-  const { add, remove } = usePedalChain();
+  const { add } = usePedalChain();
   const [volumeValue, setVolumeValue] = useState(Destination.volume.value);
 
-  const ref = useRef<Source<Volume>>();
+  const ref = useRef<Volume>();
+
+  useEffect(() => {
+    if (!ref.current) {
+      const signal = new Signal(0);
+      ref.current = new Volume(-10);
+      ref.current.connect(signal);
+      ref.current.volume.set({ value: volumeValue });
+      add(ref.current);
+    }
+  }, []);
 
   const setVolume = (value: number) => {
-    setVolumeValue(value / 10);
-    ref.current?.effect.volume.set({ value: value / 10 });
+    setVolumeValue(value);
+    console.log(value);
+    ref.current?.volume.set({ value: value });
   };
 
   const activate = () => {
-    ref.current = new Source({
-      id: 0,
-      effect: new Volume(-10),
-    });
-    ref.current.effect.volume.set({ value: volumeValue });
-    add(ref.current);
+    ref.current?.volume.rampTo(volumeValue, 0.6, 0);
   };
 
   const bypass = () => {
-    ref.current?.effect.dispose();
-    remove(ref.current);
+    ref.current?.volume.set({ value: -10 });
   };
 
   return {

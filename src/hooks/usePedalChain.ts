@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useChainProvider, useMediaProvider } from "../context";
-import { Source } from "../types";
 import { getDestination } from "tone";
 import { ToneAudioNode } from "tone";
 
@@ -8,19 +7,16 @@ export const usePedalChain = () => {
   const { pedalChain, setPedalChain } = useChainProvider();
   const { source } = useMediaProvider();
 
-  const addPedal = (pedal: Source<ToneAudioNode>) => {
-    setPedalChain((value: any) =>
-      [...value, pedal].sort((a, b) => (a.id > b.id ? -1 : 1))
-    );
+  const addPedal = (pedal: ToneAudioNode) => {
+    setPedalChain((value: any) => [...value, pedal]);
   };
 
-  const removePedal = (pedal?: Source<ToneAudioNode>) => {
-    pedal?.effect.dispose();
-    setPedalChain((value) => value.filter((p) => p.id !== pedal?.id));
+  const removePedal = (pedal?: ToneAudioNode) => {
+    pedal?.dispose;
   };
 
   useEffect(() => {
-    getDestination().chain(...pedalChain.map((p) => p.effect));
+    getDestination().chain(...pedalChain);
   }, [pedalChain, source]);
 
   return {

@@ -6,11 +6,11 @@ export const VolumePedal = () => {
 
   return (
     <Pedal
-      title='Volume'
+      title="Volume"
       knobs={[
         {
-          min: -170,
-          max: 150,
+          min: -25,
+          max: 5,
           initial: -10,
           change: volume.setVolume,
           name: "Vol",

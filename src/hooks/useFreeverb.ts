@@ -1,38 +1,42 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePedalChain } from "./usePedalChain";
-import { Freeverb } from "tone";
-import { Source } from "../types";
+import { Freeverb, Signal } from "tone";
 
 export const useFreeverb = () => {
-  const { add, remove } = usePedalChain();
+  const { add } = usePedalChain();
   const [roomSize, setRoomSize] = useState(0);
   const [mixAmount, setMixAmount] = useState(0);
 
-  const ref = useRef<Source<Freeverb>>();
+  const ref = useRef<Freeverb>();
+
+  useEffect(() => {
+    if (!ref.current) {
+      const signal = new Signal(0);
+      ref.current = new Freeverb();
+      ref.current.connect(signal);
+      ref.current.wet.set({ value: mixAmount });
+      ref.current.roomSize.set({ value: roomSize });
+      add(ref.current);
+    }
+  }, []);
 
   const setRoom = (value: number) => {
     setRoomSize(value / 100);
-    ref.current?.effect.roomSize.set({ value: value / 100 });
+    ref.current?.roomSize.set({ value: value / 100 });
   };
 
   const setMix = (value: number) => {
     setMixAmount(value / 100);
-    ref.current?.effect.wet.set({ value: value / 100 });
+    // ref.current?.wet.set({ value: value / 100 });
+    ref.current?.wet.rampTo(value / 100, 0.1, 0);
   };
 
   const activate = () => {
-    ref.current = new Source({
-      id: 3,
-      effect: new Freeverb(),
-    });
-    ref.current.effect.wet.set({ value: mixAmount });
-    ref.current.effect.roomSize.set({ value: roomSize });
-    add(ref.current);
+    ref.current?.wet.rampTo(mixAmount, 0.6, 0);
   };
 
   const bypass = () => {
-    ref.current?.effect.dispose();
-    remove(ref.current);
+    ref.current?.wet.set({ value: 0 });
   };
 
   return {

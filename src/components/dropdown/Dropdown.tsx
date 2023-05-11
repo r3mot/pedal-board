@@ -17,6 +17,7 @@ export const Dropdown = () => {
   }));
 
   const handleClick = (e: React.FormEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     const target = e.target as HTMLAnchorElement;
     const selectedInput = mediaSources.find((input) => input.id === target.id);
 

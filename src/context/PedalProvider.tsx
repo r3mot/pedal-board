@@ -1,6 +1,5 @@
 import { createContext, useState, useContext } from "react";
 import { IChainContextProps, AudioNode, IContextProps } from "../types/type";
-import { Source } from "../types";
 
 const PedalChainContext = createContext<IChainContextProps>({
   pedalChain: [],
@@ -8,14 +7,15 @@ const PedalChainContext = createContext<IChainContextProps>({
 });
 
 export const PedalChainProvider = ({ children }: IContextProps) => {
-  const [pedalChain, setPedalChain] = useState<Source<AudioNode>[]>([]);
+  const [pedalChain, setPedalChain] = useState<AudioNode[]>([]);
 
   return (
     <PedalChainContext.Provider
       value={{
         pedalChain,
         setPedalChain,
-      }}>
+      }}
+    >
       {children}
     </PedalChainContext.Provider>
   );
