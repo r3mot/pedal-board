@@ -1,5 +1,7 @@
 import { Dropdown } from "../dropdown";
 import logo from "../../../public/logo-no-background.svg";
+import { BiCoffeeTogo } from "react-icons/bi";
+import { BsGithub } from "react-icons/bs";
 import "./header.css";
 
 export const Header = () => {
@@ -11,12 +13,12 @@ export const Header = () => {
       <ul className='header__list'>
         <li className='header__list-item'>
           <a target='_blank' href='https://github.com/r3mot/pedal-board'>
-            GitHub
+            <BsGithub className='github' size={20} />
           </a>
         </li>
         <li className='header__list-item'>
           <a target='_blank' href='https://www.buymeacoffee.com/coreydevs'>
-            Buy Me a Beer 🍺
+            <BiCoffeeTogo className='coffee' size={20} />
           </a>
         </li>
       </ul>

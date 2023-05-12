@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
 import { KnobType } from "../../types/type";
-import knob from "../../../public/knob08.png";
 import "../pedals/pedal.css";
 
 interface KnobProps {
@@ -33,7 +32,7 @@ export const Knob = ({ min, max, initial, change, name }: KnobProps) => {
         max={max}
         defaultValue={initial}
         className='input-knob'
-        data-src={knob}
+        data-src='/knob08.png'
         data-sprites='100'
       />
       <h3 className='control-title'>{name}</h3>
